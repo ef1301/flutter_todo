@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do/todo.dart';
-import 'package:to_do/todo_form.dart';
-import 'package:to_do/todos.dart';
+import 'package:to_do/model/todo.dart';
+import 'package:to_do/widget/todo_form.dart';
+import 'package:to_do/provider/todos.dart';
 
 class AddTodoDialogWidget extends StatefulWidget {
+  const AddTodoDialogWidget({Key? key}) : super(key: key);
+
   @override
   _AddTodoDialogWidgetState createState() => _AddTodoDialogWidgetState();
 }
@@ -22,7 +24,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Add Todo',
+              const Text('Add Todo',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 22,

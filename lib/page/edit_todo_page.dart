@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do/todo_form.dart';
-import 'package:to_do/todos.dart';
-import 'package:to_do/todo.dart';
+import 'package:to_do/widget/todo_form.dart';
+import 'package:to_do/provider/todos.dart';
+import 'package:to_do/model/todo.dart';
 
 class EditTodoPage extends StatefulWidget {
   final Todo todo;
@@ -30,7 +30,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
-        title: Text('Edit Todo'),
+        title: const Text('Edit Todo'),
         actions: [
           IconButton(
             onPressed: () {
@@ -42,12 +42,12 @@ class _EditTodoPageState extends State<EditTodoPage> {
 
               Navigator.of(context).pop();
             },
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
           )
         ],
       ),
       body: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Form(
             key: _formKey,
             child: TodoFormWidget(

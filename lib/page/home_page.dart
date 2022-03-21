@@ -1,12 +1,12 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:to_do/main.dart';
-import 'package:to_do/add_to_dialog.dart';
-import 'package:to_do/todo_list.dart';
-import 'package:to_do/completed_list.dart';
+import 'package:to_do/widget/add_to_dialog.dart';
+import 'package:to_do/widget/todo_list.dart';
+import 'package:to_do/widget/completed_list.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -17,12 +17,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      TodoListWidget(),
-      CompletedListWidget(),
+      const TodoListWidget(),
+      const CompletedListWidget(),
     ];
 
     return Scaffold(
-      appBar: AppBar(title: Text(MyApp.title)),
+      appBar: AppBar(title: const Text(MyApp.title)),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.white.withOpacity(0.7),
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) => setState(() {
           selectedIndex = index;
         }),
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.fact_check_outlined), label: 'Todos'),
           BottomNavigationBarItem(
@@ -45,11 +45,11 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.black,
         onPressed: () => showDialog(
-          builder: (context) => AddTodoDialogWidget(),
+          builder: (context) => const AddTodoDialogWidget(),
           context: context,
           barrierDismissible: false,
         ),
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

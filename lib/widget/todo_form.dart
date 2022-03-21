@@ -22,9 +22,9 @@ class TodoFormWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             buildTitle(),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             buildDescription(),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             buildButton(),
           ],
         ),
@@ -40,7 +40,7 @@ class TodoFormWidget extends StatelessWidget {
           }
           return null;
         },
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: UnderlineInputBorder(),
           labelText: 'Title',
         ),
@@ -50,7 +50,7 @@ class TodoFormWidget extends StatelessWidget {
         maxLines: 3,
         initialValue: description,
         onChanged: onChangedDescription,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: UnderlineInputBorder(),
           labelText: 'Description',
         ),
@@ -62,6 +62,6 @@ class TodoFormWidget extends StatelessWidget {
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.black)),
         onPressed: onSavedTodo,
-        child: Text('Save'),
+        child: const Text('Save'),
       ));
 }

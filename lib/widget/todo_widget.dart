@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do/edit_todo_page.dart';
-import 'package:to_do/todo.dart';
-import 'package:to_do/todos.dart';
+import 'package:to_do/page/edit_todo_page.dart';
+import 'package:to_do/model/todo.dart';
+import 'package:to_do/provider/todos.dart';
 import 'package:to_do/utils.dart';
 
 class TodoWidget extends StatelessWidget {
@@ -20,14 +19,14 @@ class TodoWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       child: Slidable(
         //key: Key(todo.id),
-        startActionPane: ActionPane(motion: ScrollMotion(), children: [
+        startActionPane: ActionPane(motion: const ScrollMotion(), children: [
           SlidableAction(
               backgroundColor: Colors.green,
               onPressed: (context) => editTodo(context, todo),
               label: 'Edit',
               icon: Icons.edit),
         ]),
-        endActionPane: ActionPane(motion: ScrollMotion(), children: [
+        endActionPane: ActionPane(motion: const ScrollMotion(), children: [
           SlidableAction(
               backgroundColor: Colors.red,
               onPressed: (context) => deleteTodo(context, todo),
@@ -41,7 +40,7 @@ class TodoWidget extends StatelessWidget {
       onTap: () => editTodo(context, todo),
       child: Container(
           color: Colors.white,
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Row(
             children: [
               Checkbox(
@@ -70,10 +69,10 @@ class TodoWidget extends StatelessWidget {
                   ),
                   if (todo.description.isNotEmpty)
                     Container(
-                      margin: EdgeInsets.only(top: 4),
+                      margin: const EdgeInsets.only(top: 4),
                       child: Text(
                         todo.description,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           height: 1.5,
                         ),
