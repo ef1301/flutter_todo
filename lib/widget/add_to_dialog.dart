@@ -18,24 +18,34 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-          content: Form(
-        key: _formKey,
-        child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Add Todo',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  )),
-              TodoFormWidget(
-                  onChangedTitle: (title) => setState(() => this.title = title),
-                  onChangedDescription: (description) =>
-                      setState(() => this.description = description),
-                  onSavedTodo: addTodo)
-            ]),
-      ));
+        content: Form(
+          key: _formKey,
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Add Todo',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                    )),
+                TodoFormWidget(
+                    onChangedTitle: (title) =>
+                        setState(() => this.title = title),
+                    onChangedDescription: (description) =>
+                        setState(() => this.description = description),
+                    onSavedTodo: addTodo)
+              ]),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Cancel'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
 
   void addTodo() {
     final isValid = _formKey.currentState?.validate();
